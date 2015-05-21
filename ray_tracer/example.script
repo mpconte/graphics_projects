@@ -1,0 +1,6 @@
+material 1 0 0  .2 .6 .7 50
+sphere
+camera 0 0 10 0 0 0
+perspective 1 1 3
+pop_light
+trace 256 256 PIC.tiff 8

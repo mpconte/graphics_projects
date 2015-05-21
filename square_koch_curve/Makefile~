@@ -1,0 +1,20 @@
+OSTYPE := $(shell uname)
+ifeq ($(OSTYPE), Darwin)
+    CFLAGS= -DDARWIN
+    LIB= -framework OpenGL -framework GLUT -framework Foundation
+else
+    CFLAGS= -I/usr/include
+    LIB= -L/usr/lib -L/usr/lib/i386-linux-gnu -lglut -lGLU -lGL -lXmu -lXi -lXext -lX11 -lm
+endif
+
+CC= gcc
+CFLAGS +=
+SRC= a1.c
+OBJ= a1.o
+CMD= a1
+
+$(CMD): $(OBJ)
+	$(CC) $(CFLAGS) -o $(CMD) $(OBJ) $(LIB)
+
+clean:
+	rm -f $(OBJ) $(CMD)

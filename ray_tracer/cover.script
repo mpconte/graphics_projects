@@ -1,0 +1,81 @@
+% 3 spheres + cube and 2 lights over cube
+
+% generate mirror cube
+translate 1 0 -2.5
+scale 10 10 1
+material 1 1 1 .01 .01 .9 50 0.9 0 1
+cube
+
+% generate zone plate cube
+initTM
+rotate x 90
+translate 1 0 -2.5
+scale 10 10 1
+material 1 0 0  .2 .8 0 1   0 0 1   2
+cube
+
+
+% generate checkered cube
+initTM
+rotate y 90
+translate 1 0 -5
+scale 10 10 1
+material 1 0 0  .2 .8 0 1   0 0 1   1
+cube
+
+
+% generate checkered cube
+initTM
+rotate y 90
+translate 1 0 5
+scale 10 10 1
+material 1 0 0  .2 .8 0 1   0 0 1   1
+cube
+
+% mirrored cube
+% initTM
+% translate 0 1 0
+% scale .5 .5 .5
+% material 1 1 1 .01 .01 .9 50 0.9 0 1
+% cube
+
+
+% magenta diffuse sphere
+initTM
+translate -2.0 1 -0.25
+scale .7 .7 .7
+material 1 0 0 .2 .6 .8 50
+sphere
+
+% blue specular sphere
+initTM
+translate 2.0 1 -0.25
+scale .7 .7 .7
+material 0 0 1 .2 .6 .8 50
+sphere
+
+
+
+
+initTM
+translate 0 1.5 1
+scale .7 .7 .7
+material 0 1 0 .2 .6 .8 50
+sphere
+
+
+
+
+
+
+
+
+light 0 0.8 0.25 20
+
+
+camera 0 -8 1 0 0 0 0 0 1
+perspective 2 1 1
+
+
+trace 1024 1024 MYPIC2.tiff 32
+quit
